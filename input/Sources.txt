@@ -1,0 +1,11 @@
+https://www.kaggle.com/corrieaar/apartment-rental-offers-in-germany
+immo_data.csv
+
+
+https://www.kaggle.com/phanindraparashar/germany-housing-rent-and-price-data-set-apr-20/data
+zip_lat_lang.csv
+
+
+https://www.kaggle.com/orgesleka/hessen-house-prices-dataset
+houses.json
+
