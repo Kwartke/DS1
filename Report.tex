@@ -1,0 +1,67 @@
+\documentclass[11pt]{article} % use larger type; default would be 10pt
+
+\usepackage[utf8]{inputenc} % set input encoding (not needed with XeLaTeX)
+
+\usepackage{geometry} % to change the page dimensions
+\geometry{a4paper} % or letterpaper (US) or a5paper or....
+
+\usepackage{graphicx} % support the \includegraphics command and options
+
+%%% PACKAGES
+\usepackage{booktabs} % for much better looking tables
+\usepackage{array} % for better arrays (eg matrices) in maths
+\usepackage{paralist} % very flexible & customisable lists (eg. enumerate/itemize, etc.)
+\usepackage{verbatim} % adds environment for commenting out blocks of text & for better verbatim
+\usepackage{subfig} % make it possible to include more than one captioned figure/table in a single float
+% These packages are all incorporated in the memoir class to one degree or another...
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{}\chead{}\rhead{}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+%%% SECTION TITLE APPEARANCE
+\usepackage{sectsty}
+\allsectionsfont{\sffamily\mdseries\upshape} % (See the fntguide.pdf for font help)
+% (This matches ConTeXt defaults)
+
+%%% ToC (table of contents) APPEARANCE
+\usepackage[nottoc,notlof,notlot]{tocbibind} % Put the bibliography in the ToC
+\usepackage[titles,subfigure]{tocloft} % Alter the style of the Table of Contents
+\renewcommand{\cftsecfont}{\rmfamily\mdseries\upshape}
+\renewcommand{\cftsecpagefont}{\rmfamily\mdseries\upshape} % No bold!
+
+%%% END Article customizations
+
+%%% The "real" document content comes below...
+
+\title{Predicting Prices in German Real Estate Market}
+\author{Hanna () \\ Konrad Wartke (6481209)}
+
+\begin{document}
+\maketitle
+
+\section{Original Data Sources}
+
+We started with two datasets from Kaggle, one with rent price and one with house prices for the German Real Estate market. The Rent data was scraped from Immoscout24 on three different dates (22.09.2018, 10.05.2019, 08.10.2019). The house prices were also taken from Immoscout24. While no date is given for the creation of this dataset, it is most likely from novembre 2017. The name of the house price dataset is misleading, it features houses from all over Germany instead of Hesse only. \\
+
+\section{Cleanup and Merging}
+
+Since both datasets are compiled from the same original source, they share most of the features. For several features, the names are in German in one dataset, but English the other, so we had to translate the names. \\
+The most important feature is the price, which is influenced by most features. For example, all other things equal, having a garden increases the price. To eliminate the influence of several features, we trained a linear regression model. The feature weight is then used to calculate a clean price as if the real estate had no extras. This price can be negative, which means money has to be invested to bring the house into a standard state. \\
+At the end, all rent and buying prices where grouped by the zip code and the average rent and buying price per square metre is calculated. Also included are the percentages of real estate units for which a binary feature is true.
+
+\section{Prediction}
+
+\subsection{kNN}
+
+\subsection{Linear Regression}
+
+\section{Results}
+
+\section{Discussion}
+
+
+\end{document}
