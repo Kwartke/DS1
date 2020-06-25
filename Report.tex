@@ -39,6 +39,7 @@
 
 \title{Predicting Prices in German Real Estate Market}
 \author{Hanna Martens (7266768) \\ Konrad Wartke (6481209)}
+\date{}
 
 \begin{document}
 \maketitle
@@ -51,7 +52,8 @@ We started with two datasets from Kaggle, one with rent price and one with house
 
 Since both datasets are compiled from the same original source, they share most of the features. For several features, the names are in German in one dataset, but English the other, so we had to translate the names. \\
 The most important feature is the price, which is influenced by most features. For example, all other things equal, having a garden increases the price. To eliminate the influence of several features, we trained a linear regression model. The feature weight is then used to calculate a clean price as if the real estate had no extras. This price can be negative, which means money has to be invested to bring the house into a standard state. \\
-At the end, all rent and buying prices where grouped by the zip code and the average rent and buying price per square metre is calculated. Also included are the percentages of real estate units for which a binary feature is true.
+At the end, all rent and buying prices where grouped by the zip code and the average rent and buying price per square metre is calculated. Also included are the percentages of real estate units for which a binary feature is true. \\
+For future versions, we could also integrate several more of the categorical features, which are currently ignored during merging.
 
 \section{Prediction}
 \graphicspath{ {/Users/hanna/PycharmProjects/DS1/simple_linear_regression.png} }
@@ -155,8 +157,17 @@ Metric & KNN Model \\
 If we compare the algorithms with each other we can see a steady improvement of the values. While multiple linear regression is much better than single linear regression, the knn algorithm finds the best prediction.
 Obviously the linear regression models and the knn model used different sets of data thus are not fully comparable.
 With more time, the knn model could be trained with the data used in linear regression and a final statement could be made about which algorithm makes the best prediction for our data set.
+ \\
+The kNN-model of using the nearest examples in feature space agree with common sense. An real life approach to predicting real estate prices is using similiar units in the same area. \\
+For further attempts, the assumption of linear and indepedent features could be loosened. Also engineered features such as average income in a region, distance to public transport or categorizing area via zip code into urban, suburban or rural could further imporve results.
 
-\section{Discussion}
+\section{References}
 
+Dataset 1: \\
+https://www.kaggle.com/phanindraparashar/germany-housing-rent-and-price-data-set-apr-20 \\
+Dataset 2: \\
+https://www.kaggle.com/orgesleka/hessen-house-prices-dataset \\
+Coderepo: \\
+https://github.com/Kwartke/DS1
 
 \end{document}
