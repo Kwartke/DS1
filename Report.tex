@@ -70,8 +70,8 @@ The datasets that were used for the linear regression model are cleaned\_rent an
 
 \textbf{Evaluation}
 
-The evaluation observed here by way of example
-is based on the prediction of the rental price based on the number of rooms. As seen in figure \ref{fig:sregression}) the algorithm performs quite poorly. While a few predicted values closely match the actual values, other values are quite off. Exceptions like negative prices for houses which are in need of financial investment or generally missing values may have caused problems here. 
+
+The evaluation observed here is exemplary based on the prediction of the rental price based on the number of rooms. As seen in figure \ref{fig:sregression}) the algorithm performs quite poorly. While a few predicted values closely match the actual values, other values are quite off. Exceptions like negative prices for houses which are in need of financial investment or generally missing values may have caused problems here. 
 These outliers in the values could haven been detected and dealt with even more carefully. Rows with incorrect data, such as NAN or infinity values, were deleted for this project, which reduced the overall size of the data set. One approach for improvement would be to either replace the faulty data e.g. with average values or to integrate more data to extend the data set.
 A series of experiments with possible combination pairs could be another approach to find two features that have a stronger connection to improve the result.
 
@@ -80,6 +80,7 @@ A series of experiments with possible combination pairs could be another approac
 Another way to improve the results from the last section is multiple linear regression. We have again set the rental price as prediciton target and this time we include several different features from the data set to train the model.
 
 \begin{figure}[h!]
+\centering
   \includegraphics[width=14cm, height=10cm]{multiple_linear_regression.png}
   \caption{Multiple features and total rent}
   \label{fig:mregression}
@@ -89,6 +90,8 @@ Another way to improve the results from the last section is multiple linear regr
 
 The quality of the algorithms can also be assessed directly by the Scikit-learn metrics library.\\
 
+{
+\centering
 \begin{tabular}{ |c|c|c| } 
 \hline 
 Metric & simple regression & multiple regression \\
@@ -99,13 +102,15 @@ Metric & simple regression & multiple regression \\
  \hline
  Root Mean Squared Error & 468.9799 &225.3507 \\ 
  \hline
-\end{tabular}
-\\
+\end{tabular}\\
+}\hfill
 
 Mean squared error (MSE) - takes the mean squared difference between the target and predicted values
 Mean absolute error (MAE) - calculates prediction errors (actual value minus predicted value) for each row of data and find the mean of all absolute prediction errors.
 Root Mean Squared Error (RMSD) - is the standard deviation of the prediction errors.\\
 
+{
+\centering
 \begin{tabular}{ |c|c|c| } 
  \hline
  & Coefficient \\ 
@@ -118,6 +123,7 @@ yearConstructed & -2.467776 \\
 numberOfFloors & 28.994673. \\
  \hline
 \end{tabular} \\
+}\hfill
 
 The regression model finds the best fitting coefficients for all attributes and weights them accordingly.
 Here we see that, for example, the year of construction has no influence on the rent, while the rooms, number of square meters and baseRentRage are decisive.\\
@@ -129,6 +135,8 @@ The k nearest neighbor (KNN) algorithm is a type of supervised machine learning 
 We used the algorithm to predict the average rent per square meter based on all other values contained in the merged dataset.
 For our regression problem we used the Scikit-learn knn model to implement the algorithm for our dataset. Since there is no optimal number of neighbors that suits all kind of data sets fitting the model was mostly trial and error. For our dataset the optimal number of neighbors is five, while the train set contains 90\% of the data and the test set accordingly contains 10\%. \\
 
+{
+\centering
 \begin{tabular}{ |c|c|c| } 
 \hline 
 Metric & KNN Model \\
@@ -139,7 +147,8 @@ Metric & KNN Model \\
  \hline
  Root Mean Squared Error & 9.438 \\ 
  \hline
-\end{tabular}
+\end{tabular}\\
+}
 
 \section{Results}
 
